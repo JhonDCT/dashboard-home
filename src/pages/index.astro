@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+const apps = [
+  {
+    title: "Emby",
+    url: "http://192.168.18.9:8096",
+  },
+  {
+    title: "Inventory API",
+    url: "http://192.168.18.9:3000/api",
+  },
+];
+---
+
+<Layout title="Dashboard">
+  <main class="grid place-content-center h-screen bg-[#111315]">
+    <h1 class="text-5xl text-center mb-8">Dashboard</h1>
+    <ul role="list" class="flex flex-wrap gap-8">
+      {apps.map((app) => <Card href={app.url} title={app.title} />)}
+    </ul>
+  </main>
+</Layout>
+
+<style is:global>
+  :root {
+    color-scheme: dark;
+  }
+</style>
